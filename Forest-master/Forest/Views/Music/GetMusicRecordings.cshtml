@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Forest.Data.Music_Recording>
+
+<p>
+    @Html.ActionLink("Create New", "AddMusicRecording")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Artist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMusicRecording", new { Controller = "MusicAdmin" , id = item.Id }) |
+            @Html.ActionLink(" Details", "GetMusicRecording", new {id = item.Id  }) 
+            @Html.ActionLink("Delete", "DeleteMusicRecording", new { Controller = "MusicAdmin",  id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

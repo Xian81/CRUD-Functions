@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ForestDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Music_Catergory">
+          <Key>
+            <PropertyRef Name="GenreId" />
+          </Key>
+          <Property Name="GenreId" Type="int" Nullable="false" />
+          <Property Name="Genre" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Music_Recording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Genre" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Image_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_Tracks" Type="int" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Stock_Count" Type="int" Nullable="false" />
+          <Property Name="Released" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Music_Recording_Music_Recording1">
+          <End Role="Music_Recording" Type="Self.Music_Recording" Multiplicity="1" />
+          <End Role="Music_Recording1" Type="Self.Music_Recording" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Music_Recording">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Music_Recording1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForestDatabaseModelStoreContainer">
+          <EntitySet Name="Music_Catergory" EntityType="Self.Music_Catergory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Music_Recording" EntityType="Self.Music_Recording" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Music_Recording_Music_Recording1" Association="Self.FK_Music_Recording_Music_Recording1">
+            <End Role="Music_Recording" EntitySet="Music_Recording" />
+            <End Role="Music_Recording1" EntitySet="Music_Recording" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForestDatabaseModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityType Name="Music_Catergory">
+          <Key>
+            <PropertyRef Name="GenreId" />
+          </Key>
+          <Property Name="Genre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GenreId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Music_Recording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Artist" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Tracks" Type="Int32" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Stock_Count" Type="Int32" Nullable="false" />
+          <Property Name="Released" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Genre" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ForestDatabaseEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Music_Catergory" EntityType="Self.Music_Catergory" />
+          <EntitySet Name="Music_Recording" EntityType="Self.Music_Recording" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForestDatabaseModelStoreContainer" CdmEntityContainer="ForestDatabaseEntities">
+          <EntitySetMapping Name="Music_Catergory">
+            <EntityTypeMapping TypeName="ForestDatabaseModel.Music_Catergory">
+              <MappingFragment StoreEntitySet="Music_Catergory">
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Music_Recording">
+            <EntityTypeMapping TypeName="ForestDatabaseModel.Music_Recording">
+              <MappingFragment StoreEntitySet="Music_Recording">
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+                <ScalarProperty Name="Num_Tracks" ColumnName="Num_Tracks" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock_Count" ColumnName="Stock_Count" />
+                <ScalarProperty Name="Released" ColumnName="Released" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>

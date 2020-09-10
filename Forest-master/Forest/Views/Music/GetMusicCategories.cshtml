@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Forest.Data.Music_Catergory>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+
+    <tr>
+        <td>
+
+            @*@Html.DisplayFor(modelItem => item.Genre)
+            @Html.ActionLink("Genre", "GetMusicRecordings", new {genre = item.Genre })*@
+            @Html.ActionLink(item.Genre, "GetMusicRecordings", new { genre= item.Genre})
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GenreId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GenreId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GenreId })
+            @Html.ActionLink("Add Music", "AddMusicRecording", new { Controller = "MusicAdmin", genre = item.Genre })
+            
+        </td>
+    </tr>
+}
+
+</table>
