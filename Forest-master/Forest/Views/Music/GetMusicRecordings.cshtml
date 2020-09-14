@@ -1,7 +1,13 @@
-﻿@model IEnumerable<Forest.Data.Music_Recording>
+﻿@model IEnumerable<Forest.Data.BEANS.MusicBEAN>
+
+@{
+    ViewBag.Title = "GetMusicRecordings";
+}
+
+<h2>Recordings</h2>
 
 <p>
-    @Html.ActionLink("Create New", "AddMusicRecording")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -10,6 +16,27 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Num_Tracks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock_Count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Released)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
         </th>
         <th></th>
     </tr>
@@ -23,9 +50,30 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditMusicRecording", new { Controller = "MusicAdmin" , id = item.Id }) |
-            @Html.ActionLink(" Details", "GetMusicRecording", new {id = item.Id  }) 
-            @Html.ActionLink("Delete", "DeleteMusicRecording", new { Controller = "MusicAdmin",  id=item.Id })
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Tracks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stock_Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Released)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMusicRecording", new { controller = "MusicAdmin", id=item.Id }) |
+            @Html.ActionLink("Details", "GetMusicRecording", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteMusicRecording", new { controller = "MusicAdmin" , id=item.Id })
         </td>
     </tr>
 }

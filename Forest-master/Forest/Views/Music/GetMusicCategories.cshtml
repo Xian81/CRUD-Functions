@@ -22,7 +22,7 @@
 
             @*@Html.DisplayFor(modelItem => item.Genre)
             @Html.ActionLink("Genre", "GetMusicRecordings", new {genre = item.Genre })*@
-            @Html.ActionLink(item.Genre, "GetMusicRecordings", new { genre= item.Genre})
+            @Html.ActionLink(item.Genre, "GetMusicRecordings", new { genre= item.GenreId})
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.GenreId }) |

@@ -28,15 +28,20 @@ namespace Forest.Controllers
         }
 
 
-        public ActionResult GetMusicRecordings(string genre)
+        public ActionResult GetMusicRecordings (int genre)
         {
-
             return View(_MusicService.GetMusicRecordings(genre));
-
-
         }
 
-        public ActionResult GetMusicRecording ( int id)
+        //public ActionResult GetMusicRecordings(string genre)
+        //{
+
+        //    return View(_MusicService.GetMusicRecordings(genre));
+
+
+        //}
+
+        public ActionResult GetMusicRecording (int id)
         {
 
             return View(_MusicService.GetMusicRecording(id));

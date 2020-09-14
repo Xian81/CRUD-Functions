@@ -3,6 +3,7 @@ using Forest.Data;
 using Forest.Data.IDAO;
 using Forest.Data.DAO;
 using Forest.Services.IService;
+using Forest.Data.BEANS;
 
 namespace Forest.Services.Service
 {
@@ -27,13 +28,19 @@ namespace Forest.Services.Service
 
 
     }
-        public IList<Music_Recording> GetMusicRecordings(string genre)
+        //public IList<Music_Recording> GetMusicRecordings(string genre)
+        //{
+
+        //    return _musicDAO.GetMusicRecordings(genre);
+
+
+
+        //}
+
+
+        public IList<MusicBEAN> GetMusicRecordings(int genre)
         {
-
             return _musicDAO.GetMusicRecordings(genre);
-
-
-
         }
 
         public Music_Recording GetMusicRecording(int id)

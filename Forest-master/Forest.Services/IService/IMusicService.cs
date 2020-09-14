@@ -1,4 +1,5 @@
 ﻿using Forest.Data;
+using Forest.Data.BEANS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace Forest.Services.IService
 
         IList<Music_Catergory> GetMusicCategories();
 
-        IList<Music_Recording> GetMusicRecordings(string genre);
+        //IList<Music_Recording> GetMusicRecordings(string genre);
+
+        IList<MusicBEAN> GetMusicRecordings(int genre);
 
         Music_Recording GetMusicRecording(int id);
 
