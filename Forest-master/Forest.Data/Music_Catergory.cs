@@ -14,7 +14,7 @@ namespace Forest.Data
     
     public partial class Music_Catergory
     {
-        public string Genre { get; set; }
         public int GenreId { get; set; }
+        public string Genre { get; set; }
     }
 }
