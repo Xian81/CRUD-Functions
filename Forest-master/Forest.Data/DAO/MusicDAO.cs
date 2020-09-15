@@ -70,18 +70,24 @@ namespace Forest.Data.DAO
         //}
 
 
-        public Music_Recording GetMusicRecording(int id)
-
+        public MusicBEAN GetMusicRecording (int genre)
         {
-            IQueryable<Music_Recording> _recording;
-            _recording = from recording
-                         in _context.Music_Recording
-                         where recording.Id == id
-                         select recording;
-            return _recording.ToList<Music_Recording>().First();
-
 
         }
+
+
+        //public Music_Recording GetMusicRecording(int id)
+
+        //{
+        //    IQueryable<Music_Recording> _recording;
+        //    _recording = from recording
+        //                 in _context.Music_Recording
+        //                 where recording.Id == id
+        //                 select recording;
+        //    return _recording.ToList<Music_Recording>().First();
+
+
+        //}
 
 
 

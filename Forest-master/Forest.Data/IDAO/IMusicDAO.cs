@@ -23,7 +23,7 @@ namespace Forest.Data.IDAO
 
         //IList <Music_Recording> GetMusicRecordings(string genre);
 
-        MusicBEAN GetMusicRecording(int id);
+        MusicBEAN GetMusicRecording(int genreId);
 
         //Music_Recording GetMusicRecording(int id);
 
