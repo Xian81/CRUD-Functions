@@ -15,13 +15,13 @@ namespace Forest.Data.DAO
 
 
 
-        public Music_Recording GetMusicRecording(int Id)
+        public Music_Recording GetMusicRecording(int id)
 
         {
             IQueryable<Music_Recording> _recording;
             _recording = from recording
                          in _context.Music_Recording
-                         where recording.Id == Id
+                         where recording.Id == id
                          select recording;
             return _recording.ToList<Music_Recording>().First();
 
@@ -35,13 +35,13 @@ namespace Forest.Data.DAO
 
 
         
-      public IList<Music_Recording> GetMusicRecordings(string genre)
+      public IList<Music_Recording> GetMusicRecordings(int genre)
         {
 
             IQueryable<Music_Recording>_recordings;
             _recordings = from recording
                           in _context.Music_Recording
-                          where recording.Genre == genre
+                          where recording.GenreId == genre
                           select recording;
             return _recordings.ToList<Music_Recording>();
 
@@ -60,7 +60,7 @@ namespace Forest.Data.DAO
             _categories = from category
                           in _context.Music_Category
                           select category;
-            return _categories.ToList < Music_Category>();
+            return _categories.ToList();
 
 
 
@@ -75,7 +75,7 @@ namespace Forest.Data.DAO
 
             Music_Recording record = GetMusicRecording(recording.Id);
             record.Artist = recording.Artist;
-            record.Genre = recording.Genre;
+            record.GenreId = recording.GenreId;
             record.Image_Name = recording.Image_Name;
             record.Num_Tracks = recording.Num_Tracks;
             record.Price = recording.Price;
@@ -115,8 +115,6 @@ namespace Forest.Data.DAO
         }
 
     
-
-        //ForestEntities does not contain a defintion(what does this mean ? ). 
 
     }
 }

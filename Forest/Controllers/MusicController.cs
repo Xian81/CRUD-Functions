@@ -26,7 +26,7 @@ namespace Forest.Controllers
         }
 
 
-        public ActionResult GetMusicRecordings(string genre)
+        public ActionResult GetMusicRecordings(int genre)
         {
 
             return View(_MusicService.GetMusicRecordings(genre));

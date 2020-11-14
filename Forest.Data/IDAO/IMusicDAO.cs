@@ -17,14 +17,14 @@ namespace Forest.Data.IDAO
         //Parameter name:genre
 
 
-        IList<Forest.Data.Music_Category> GetMusicCategories();
+        IList<Music_Category> GetMusicCategories();
 
-        IList<Forest.Data.Music_Recording> GetMusicRecordings(string genre);
+        IList<Music_Recording> GetMusicRecordings(int genre);
 
-        Forest.Data.Music_Recording GetMusicRecording(int Id);
+        Music_Recording GetMusicRecording(int id);
 
 
-        void EditMusicRecording(Forest.Data.Music_Recording recording);
+        void EditMusicRecording(Music_Recording recording);
 
 
         void AddMusicRecording(Music_Recording recording);

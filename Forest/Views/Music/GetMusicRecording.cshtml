@@ -4,7 +4,7 @@
     ViewBag.Title = "GetMusicRecording";
 }
 
-<h2>GetMusicRecording</h2>
+<h2>tMusic Recording</h2>
 
 <div>
     <h4>Music_Recording</h4>
@@ -27,11 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Genre)
+            @Html.DisplayNameFor(model => model.GenreId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Genre)
+            @Html.DisplayFor(model => model.GenreId)
         </dd>
 
         <dt>
@@ -78,5 +78,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.GenreId, Controller = "Music" })
 </p>

@@ -4,7 +4,7 @@
     ViewBag.Title = "DeleteMusicRecording";
 }
 
-<h2>DeleteMusicRecording</h2>
+<h2>Delete Music Recording</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -28,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Genre)
+            @Html.DisplayNameFor(model => model.GenreId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Genre)
+            @Html.DisplayFor(model => model.GenreId)
         </dd>
 
         <dt>
@@ -82,7 +82,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.GenreId, Controller = "Music" })
         </div>
     }
 </div>

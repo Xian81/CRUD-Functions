@@ -50,7 +50,7 @@ namespace Forest.Controllers
                 _MusicService.AddMusicRecording(recording);
 
 
-                return RedirectToAction("GetMusicRecordings", new { genre = recording.Genre, Controller = "Music" });
+                return RedirectToAction("GetMusicRecordings", new { genre = recording.GenreId, Controller = "Music" });
             }
             catch
             {
@@ -74,7 +74,7 @@ namespace Forest.Controllers
                 // TODO: Add update logic here
                 _MusicService.EditMusicRecording(recording);
 
-                return RedirectToAction("GetMusicRecordings", new { genre = recording.Genre, Controller = "Music" });
+                return RedirectToAction("GetMusicRecordings", new { genre = recording.GenreId, Controller = "Music" });
             }
             catch
             {
@@ -102,7 +102,7 @@ namespace Forest.Controllers
                 _recording = _MusicService.GetMusicRecording(recording.Id);
                 _MusicService.DeleteMusicRecording(_recording);
                 return RedirectToAction("Recordings",
-                new { controller = "Music", Genre = _recording.Genre });
+                new { controller = "Music", Genre = _recording.GenreId });
 
 
                
