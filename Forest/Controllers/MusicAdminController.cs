@@ -69,7 +69,7 @@ namespace Forest.Controllers
 
         // POST: MusicAdmin/Edit/5
         [HttpPost]
-        public ActionResult EditMusicRecording (MusicBEAN recording )
+        public ActionResult EditMusicRecording (Music_Recording recording )
         {
             try
             {
@@ -98,15 +98,12 @@ namespace Forest.Controllers
             try
             {
                 // TODO: Add delete logic here
-
-
-                //Music_Recording _recording;
-                DeleteMusicRecording(rec);
-                return RedirectToAction("Recordings",
-                new { controller = "Music", Genre = rec.Id });
-
-
-               
+                Music_Recording _recording;
+                _recording = _MusicService.GetMusicRecording(rec.Id);
+                _MusicService.DeleteMusicRecording(_recording);
+                return RedirectToAction("GetMusicRecordings",
+                new { controller = "Music", Genre = rec.GenreId });
+                                      
 
                 
             }

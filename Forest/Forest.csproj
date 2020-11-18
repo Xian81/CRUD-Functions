@@ -198,8 +198,6 @@
     <Content Include="Views\Music\GetMusicRecording.cshtml" />
     <Content Include="Views\MusicAdmin\AddMusicRecording.cshtml" />
     <Content Include="Views\MusicAdmin\DeleteMusicRecording.cshtml" />
-    <Content Include="Views\Music\GetMusicRecordingsTwo.cshtml" />
-    <Content Include="Views\Music\GetMusicRecordingTwo.cshtml" />
     <Content Include="Views\MusicAdmin\EditMusicRecording.cshtml" />
   </ItemGroup>
   <ItemGroup>

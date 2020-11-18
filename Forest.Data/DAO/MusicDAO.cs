@@ -15,25 +15,24 @@ namespace Forest.Data.DAO
 
 
 
-        //public Music_Recording GetMusicRecording(int id)
+        public Music_Recording GetMusicRecording(int id)
 
-        //{
-        //    IQueryable<Music_Recording> _recording;
-        //    _recording = from recording
-        //                 in _context.Music_Recording
-        //                 where recording.Id == id
-        //                 select recording;
-        //    return _recording.ToList<Music_Recording>().First();
+        {
+            IQueryable<Music_Recording> _recording;
+            _recording = from recording
+                            in _context.Music_Recording
+                         where recording.Id == id
+                         select recording;
+            var r = _recording.ToList().FirstOrDefault();
+            return _recording.First();
 
+        }
 
-        //}
-
-        public MusicBEAN GetMusicRecording (int id)
+        public MusicBEAN GetMusicRecordingBEAN (int id)
         {
             IQueryable<MusicBEAN> _musicBEAN = from rec in _context.Music_Recording
                                                from cat in _context.Music_Category
-                                               where rec.GenreId == cat.GenreId
-                                               where cat.GenreId == id
+                                               where rec.Id == id
                                                select new MusicBEAN
                                                {
                                                    Id = rec.GenreId,
@@ -50,7 +49,7 @@ namespace Forest.Data.DAO
         }
    
 
-        public IList<MusicBEAN> GetMusicRecordings(int genre)
+        public IList<MusicBEAN> GetMusicRecordingsBEAN (int genre)
         {
             IQueryable<MusicBEAN> _musicBEANS = from recs in _context.Music_Recording
                                                 from cats in _context.Music_Category
@@ -110,13 +109,13 @@ namespace Forest.Data.DAO
 
 
 
-    public void EditMusicRecording(MusicBEAN recording)
+    public void EditMusicRecording(Music_Recording recording)
 
         {
 
-            MusicBEAN record = GetMusicRecording(recording.Id);
+            Music_Recording  record = GetMusicRecording(recording.Id);
             record.Artist = recording.Artist;
-            record.Genre = recording.Genre;
+            record.GenreId = recording.GenreId;
             record.Image_Name = recording.Image_Name;
             record.Num_Tracks = recording.Num_Tracks;
             record.Price = recording.Price;

@@ -22,20 +22,24 @@ namespace Forest.Data.IDAO
 
         //IList<Music_Recording> GetMusicRecordings(int genre);
 
-        IList<MusicBEAN> GetMusicRecordings(int genre);
+        IList<MusicBEAN> GetMusicRecordingsBEAN(int genre);
 
-        //Music_Recording GetMusicRecording(int id);
+        Music_Recording GetMusicRecording(int id);
 
-        MusicBEAN GetMusicRecording(int id);
+        MusicBEAN GetMusicRecordingBEAN(int id);
 
 
-        void EditMusicRecording(MusicBEAN recording);
+        void EditMusicRecording(Music_Recording recording);
 
 
         void AddMusicRecording(Music_Recording recording);
 
 
         void DeleteMusicRecording(Music_Recording  recording);
+
+
+         
+
         
         //Do not use <> brackets these are only for a list.
 

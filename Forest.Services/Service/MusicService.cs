@@ -31,26 +31,26 @@ namespace Forest.Services.Service
 
         //}
 
-        IList<MusicBEAN> IMusicService.GetMusicRecordings(int genre)
+        IList<MusicBEAN> IMusicService.GetMusicRecordingsBEAN(int genre)
         {
-            return _musicDAO.GetMusicRecordings(genre);
+            return _musicDAO.GetMusicRecordingsBEAN(genre);
         }
 
 
-        public MusicBEAN GetMusicRecording (int Id)
+        public MusicBEAN GetMusicRecordingBEAN (int Id)
+        {
+            return _musicDAO.GetMusicRecordingBEAN(Id);
+        }
+
+        public Music_Recording GetMusicRecording(int Id)
         {
             return _musicDAO.GetMusicRecording(Id);
         }
 
-        //public Music_Recording GetMusicRecording(int Id)
-        //{
-        //    return _musicDAO.GetMusicRecording(Id);
-        //}
 
 
 
-
-        public void EditMusicRecording(MusicBEAN recording)
+        public void EditMusicRecording(Music_Recording recording)
         
         {
 

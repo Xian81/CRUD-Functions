@@ -23,12 +23,12 @@
     <tr>
         <td>
             
-            @Html.ActionLink(item.Genre, "GetMusicRecordingsTwo",
+            @Html.ActionLink(item.Genre, "GetMusicRecordings",
                             new { genre = item.GenreId })
         </td>
         <td>
-            @Html.ActionLink("Edit", "GetMusicRecordingsTwo", new { genre = item.GenreId , Controller = "Music"})
-            @Html.ActionLink("Details", "Details", new { id=item.GenreId })
+            @Html.ActionLink("Edit", "GetMusicRecordings", new { genre = item.GenreId , Controller = "Music"})
+            @Html.ActionLink("Details", "GetMusicRecording", new { id=item.GenreId, Controller = "Music" })
             @Html.ActionLink("Delete", "DeleteMusicRecording", new { id=item.GenreId, Controller= "MusicAdmin" })
             @Html.ActionLink("Add Music", "AddMusicRecording", new { genre = item.GenreId, Controller = "MusicAdmin" })
         </td>

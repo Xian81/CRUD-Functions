@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Forest.Data.Music_Recording>
+﻿@model IEnumerable<Forest.Data.BEANS.MusicBEAN>
 
 @{
     ViewBag.Title = "GetMusicRecordings";
@@ -20,8 +20,8 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.GenreId)*@
-            <label for="GenreId">Genre Number </label>
+            @*@Html.DisplayNameFor(model => model.Genre)*@
+            <label for="Genre">Genre Name </label>
 
         </th>
         <th>
@@ -59,11 +59,11 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenreId)
+                @Html.DisplayFor(modelItem => item.Genre)
 
             </td>
             <td>
-                 @Html.DisplayFor(modelItem => item.Image_Name)
+                @Html.DisplayFor(modelItem => item.Image_Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Num_Tracks)
@@ -81,11 +81,11 @@
             </td>
             <td>
 
-                @Html.ActionLink("Edit", "EditMusicRecordingTwo", new { id = item.Id, Controller = "MusicAdmin" }) |
+                @Html.ActionLink("Edit", "EditMusicRecording", new { id = item.Id, Controller = "MusicAdmin" }) |
 
+                @Html.ActionLink(item.Id, "Details", new { id = item.Id, Controller = "" })
 
-
-                @Html.ActionLink("Details", "GetMusicRecording", new { Id = item.Id })
+                @*@Html.ActionLink("Details", "GetMusicRecording", new { Id = item.Id })*@
 
                 @*Html.ActionLink("Details", "Details", new { id=item.Id })*@
 
@@ -93,7 +93,7 @@
             </td>
         </tr>
     }
-   
+
 
 </table>
 <div>

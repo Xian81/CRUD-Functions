@@ -1,4 +1,4 @@
-﻿@model Forest.Data.Music_Recording
+﻿@model Forest.Data.BEANS.MusicBEAN
 
 @{
     ViewBag.Title = "GetMusicRecording";
@@ -7,7 +7,7 @@
 <h2>Details Of Music Recording</h2>
 
 <div>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,12 +27,12 @@
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.GenreId)*@
-            <label for="GenreId">Genre Number</label>
+            @*@Html.DisplayNameFor(model => model.Genre)*@
+            <label for="Genre">Genre Name</label>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GenreId)
+            @Html.DisplayFor(model => model.Genre)
         </dd>
 
         <dt>
@@ -85,5 +85,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "GetMusicRecordingsTwo", new { genre = Model.GenreId, Controller = "Music" })
+    @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.Id, Controller = "Music" })
 </p>
