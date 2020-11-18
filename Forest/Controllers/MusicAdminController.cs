@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Forest.Data.BEANS;
 
 namespace Forest.Controllers
 {
@@ -34,8 +35,9 @@ namespace Forest.Controllers
         }
 
         // GET: MusicAdmin/Create
-        public ActionResult AddMusicRecording (string Genre)
+        public ActionResult AddMusicRecording (int Genre)
         {
+          
             return View();
         }
         //Why is this to convert to a string genre ? 
@@ -67,14 +69,14 @@ namespace Forest.Controllers
 
         // POST: MusicAdmin/Edit/5
         [HttpPost]
-        public ActionResult EditMusicRecording (int id, Music_Recording recording )
+        public ActionResult EditMusicRecording (MusicBEAN recording )
         {
             try
             {
                 // TODO: Add update logic here
                 _MusicService.EditMusicRecording(recording);
 
-                return RedirectToAction("GetMusicRecordings", new { genre = recording.GenreId, Controller = "Music" });
+                return RedirectToAction("GetMusicRecordingsTwo", new { genre = recording.Id, Controller = "Music" });
             }
             catch
             {
@@ -91,18 +93,17 @@ namespace Forest.Controllers
 
         // POST: MusicAdmin/Delete/5
         [HttpPost]
-        public ActionResult DeleteMusicRecording(Music_Recording recording)
+        public ActionResult DeleteMusicRecording(Music_Recording rec)
         {
             try
             {
                 // TODO: Add delete logic here
 
 
-                Music_Recording _recording;
-                _recording = _MusicService.GetMusicRecording(recording.Id);
-                _MusicService.DeleteMusicRecording(_recording);
+                //Music_Recording _recording;
+                DeleteMusicRecording(rec);
                 return RedirectToAction("Recordings",
-                new { controller = "Music", Genre = _recording.GenreId });
+                new { controller = "Music", Genre = rec.Id });
 
 
                
@@ -118,5 +119,5 @@ namespace Forest.Controllers
             }
         }
 
-    } // what does this mean? 
+    } 
 }

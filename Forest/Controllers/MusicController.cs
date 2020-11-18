@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Forest.Data.BEANS;
 using System.Web.Mvc;
 
 namespace Forest.Controllers
@@ -26,22 +27,31 @@ namespace Forest.Controllers
         }
 
 
-        public ActionResult GetMusicRecordings(int genre)
-        {
+        //public ActionResult GetMusicRecordings(int genre)
+        //{
 
+        //    return View(_MusicService.GetMusicRecordings(genre));
+
+
+        //}
+
+        public ActionResult GetMusicRecordingsTwo (int genre )
+        {
             return View(_MusicService.GetMusicRecordings(genre));
-
-
         }
 
-        public ActionResult GetMusicRecording ( int Id)
+        //public ActionResult GetMusicRecording ( int Id)
+        //{
+
+        //    return View(_MusicService.GetMusicRecording(Id));
+
+
+        //}
+
+        public ActionResult GetMusicRecordingTwo (int Id)
         {
-
             return View(_MusicService.GetMusicRecording(Id));
-
-
         }
-
 
 
         // GET: Music/Details/5

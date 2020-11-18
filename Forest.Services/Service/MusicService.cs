@@ -2,7 +2,8 @@
 using Forest.Data;
 using Forest.Data.IDAO;
 using Forest.Data.DAO;
-
+using Forest.Data.BEANS;
+using Forest.Services.IService;
 
 namespace Forest.Services.Service
 {
@@ -17,34 +18,39 @@ namespace Forest.Services.Service
             _musicDAO = new MusicDAO();    }
 
 
-    public IList<Music_Category>GetMusicCategories()
+        public IList<Music_Category> GetMusicCategories()
 
-    {
-
-
-        return _musicDAO.GetMusicCategories();
-        
-
-
-    }
-        public IList<Music_Recording> GetMusicRecordings(int genre)
         {
-
-            return _musicDAO.GetMusicRecordings(genre);
-
-
-
+            return _musicDAO.GetMusicCategories();
         }
 
-        public Music_Recording GetMusicRecording(int Id)
+       //public IList<Music_Recording> GetMusicRecordings(int genre)
+        //{
+
+        //    return _musicDAO.GetMusicRecordings(genre);
+
+        //}
+
+        IList<MusicBEAN> IMusicService.GetMusicRecordings(int genre)
+        {
+            return _musicDAO.GetMusicRecordings(genre);
+        }
+
+
+        public MusicBEAN GetMusicRecording (int Id)
         {
             return _musicDAO.GetMusicRecording(Id);
         }
 
+        //public Music_Recording GetMusicRecording(int Id)
+        //{
+        //    return _musicDAO.GetMusicRecording(Id);
+        //}
 
 
 
-        public void EditMusicRecording(Music_Recording recording)
+
+        public void EditMusicRecording(MusicBEAN recording)
         
         {
 
@@ -68,6 +74,7 @@ namespace Forest.Services.Service
 
         }
 
+       
 
 
 

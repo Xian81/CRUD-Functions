@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BEANS\MusicBEAN.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ForestDataModel.Context.cs">
       <AutoGen>True</AutoGen>

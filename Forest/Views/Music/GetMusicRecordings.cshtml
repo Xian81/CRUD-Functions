@@ -63,7 +63,7 @@
 
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image_Name)
+                 @Html.DisplayFor(modelItem => item.Image_Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Num_Tracks)
@@ -76,11 +76,12 @@
                 @Html.DisplayFor(modelItem => item.Stock_Count)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Released)
+                @item.Released.ToString("dd MMM yyyy")
+                @*@Html.DisplayFor(modelItem => item.Released.ToShortDateString()))*@
             </td>
             <td>
 
-                @Html.ActionLink("Edit", "EditMusicRecording", new { id = item.Id, Controller = "MusicAdmin" }) |
+                @Html.ActionLink("Edit", "EditMusicRecordingTwo", new { id = item.Id, Controller = "MusicAdmin" }) |
 
 
 

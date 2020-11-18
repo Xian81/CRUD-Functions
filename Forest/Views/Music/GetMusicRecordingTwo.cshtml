@@ -1,13 +1,13 @@
-﻿@model Forest.Data.Music_Recording
+﻿@model Forest.Data.BEANS.MusicBEAN
 
 @{
-    ViewBag.Title = "GetMusicRecording";
+    ViewBag.Title = "GetMusicRecordingTwo";
 }
 
-<h2>Details Of Music Recording</h2>
+<h2>GetMusicRecordingTwo</h2>
 
 <div>
-    
+    <h4>MusicBEAN</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,17 +27,15 @@
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.GenreId)*@
-            <label for="GenreId">Genre Number</label>
+            @Html.DisplayNameFor(model => model.Genre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GenreId)
+            @Html.DisplayFor(model => model.Genre)
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.Image_Name)*@
-            <label for="Image_Name">Image</label>
+            @Html.DisplayNameFor(model => model.Image_Name)
         </dt>
 
         <dd>
@@ -45,8 +43,7 @@
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.Num_Tracks)*@
-            <label for="Num_Tracks">Number of Tracks</label>
+            @Html.DisplayNameFor(model => model.Num_Tracks)
         </dt>
 
         <dd>
@@ -62,28 +59,24 @@
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.Stock_Count)*@
-            <label for="Stock_Count">Stock</label>
+            @Html.DisplayNameFor(model => model.Stock_Count)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Stock_Count)
-
         </dd>
 
         <dt>
-            @*@Html.DisplayNameFor(model => model.Released)*@
-            <label for="Released">Release Year</label>
+            @Html.DisplayNameFor(model => model.Released)
         </dt>
 
         <dd>
-            @Model.Released.ToString("dd MMM yyyy")
-            @*@Html.DisplayFor(model => model.Released)*@
+            @Html.DisplayFor(model => model.Released)
         </dd>
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "GetMusicRecordingsTwo", new { genre = Model.GenreId, Controller = "Music" })
+    @Html.ActionLink("Back to List", "Index")
 </p>

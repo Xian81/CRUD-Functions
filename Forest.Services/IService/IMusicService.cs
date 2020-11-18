@@ -1,4 +1,5 @@
 ﻿using Forest.Data;
+using Forest.Data.BEANS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,21 @@ namespace Forest.Services.IService
     {
 
         IList<Forest.Data.Music_Category> GetMusicCategories();
-        IList<Forest.Data.Music_Recording> GetMusicRecordings(int genre);
+        //IList<Forest.Data.Music_Recording> GetMusicRecordings(int genre);
 
-        Forest.Data.Music_Recording GetMusicRecording(int Id);
+        IList<MusicBEAN> GetMusicRecordings(int genre);
 
-        void EditMusicRecording(Forest.Data.Music_Recording recording);
+        MusicBEAN GetMusicRecording(int Id);
+
+        //Music_Recording GetMusicRecording(int Id);
+
+        void EditMusicRecording(MusicBEAN recording);
 
 
-        void AddMusicRecording(Forest.Data.Music_Recording recording);
+        void AddMusicRecording(Music_Recording recording);
 
 
-        void DeleteMusicRecording(Forest.Data.Music_Recording recording);
+        void DeleteMusicRecording(Music_Recording recording);
 
 
 
