@@ -21,7 +21,7 @@ namespace Forest.Data.DAO
             IQueryable<Music_Recording> _recording;
             _recording = from recording
                             in _context.Music_Recording
-                         where recording.Id == id
+                         where recording.MusicId == id
                          select recording;
             var r = _recording.ToList().FirstOrDefault();
             return _recording.First();
@@ -32,13 +32,14 @@ namespace Forest.Data.DAO
         {
             IQueryable<MusicBEAN> _musicBEAN = from rec in _context.Music_Recording
                                                from cat in _context.Music_Category
-                                               where rec.Id == id
+                                               where rec.MusicId == id
                                                select new MusicBEAN
                                                {
-                                                   Id = rec.GenreId,
+                                                   MusicId = rec.MusicId,
                                                    Artist = rec.Artist,
                                                    Title = rec.Title,
                                                    Genre = cat.Genre,
+                                                   GenreId = cat.GenreId,
                                                    Image_Name = rec.Image_Name,
                                                    Num_Tracks = rec.Num_Tracks,
                                                    Price = rec.Price,
@@ -46,10 +47,11 @@ namespace Forest.Data.DAO
                                                    Released = rec.Released,
                                                };
             return _musicBEAN.ToList().First();
+           
         }
-   
 
-        public IList<MusicBEAN> GetMusicRecordingsBEAN (int genre)
+
+        public IList<MusicBEAN> GetMusicRecordings(int genre)
         {
             IQueryable<MusicBEAN> _musicBEANS = from recs in _context.Music_Recording
                                                 from cats in _context.Music_Category
@@ -57,10 +59,11 @@ namespace Forest.Data.DAO
                                                 where cats.GenreId == genre
                                                 select new MusicBEAN
                                                 {
-                                                    Id = recs.GenreId,
+                                                    MusicId = recs.MusicId,
                                                     Artist = recs.Artist,
                                                     Title = recs.Title,
                                                     Genre = cats.Genre,
+                                                    GenreId = cats.GenreId,
                                                     Image_Name = recs.Image_Name,
                                                     Num_Tracks = recs.Num_Tracks,
                                                     Price = recs.Price,
@@ -68,32 +71,33 @@ namespace Forest.Data.DAO
                                                     Released = recs.Released,
 
                                                 };
-            return _musicBEANS.ToList<MusicBEAN>();
+          return _musicBEANS.ToList<MusicBEAN>();
+            
         }
 
 
 
 
-        
-      //public IList<Music_Recording> GetMusicRecordings(int genre)
-      //  {
 
-      //      IQueryable<Music_Recording>_recordings;
-      //      _recordings = from recording
-      //                    in _context.Music_Recording
-      //                    where recording.GenreId == genre
-      //                    select recording;
-      //      return _recordings.ToList<Music_Recording>();
+        //public IList<Music_Recording> GetMusicRecordings(int genre)
+        //{
 
-      //      //Select * from Music_Recording as recording
-      //      //    where recording.genre==myGenre
-          
-      //  //This is a method to call information from the Music_Recording table.
+        //    IQueryable<Music_Recording> _recordings;
+        //    _recordings = from recording
+        //                  in _context.Music_Recording
+        //                  where recording.GenreId == genre
+        //                  select recording;
+        //    return _recordings.ToList<Music_Recording>();
 
-      //  }
+        //    Select* from Music_Recording as recording
+        //        where recording.genre == myGenre
+
+        //    This is a method to call information from the Music_Recording table.
+
+        //}
 
 
-	public IList<Music_Category> GetMusicCategories()
+        public IList<Music_Category> GetMusicCategories()
 		{
 
             IQueryable<Music_Category> _categories;
@@ -113,7 +117,7 @@ namespace Forest.Data.DAO
 
         {
 
-            Music_Recording  record = GetMusicRecording(recording.Id);
+            Music_Recording record = GetMusicRecording(recording.MusicId);
             record.Artist = recording.Artist;
             record.GenreId = recording.GenreId;
             record.Image_Name = recording.Image_Name;

@@ -11,6 +11,9 @@
 </p>
 <table class="table">
     <tr>
+
+
+
         <th>
 
             @*@Html.DisplayNameFor(model => model.Artist)*@
@@ -81,15 +84,16 @@
             </td>
             <td>
 
-                @Html.ActionLink("Edit", "EditMusicRecording", new { id = item.Id, Controller = "MusicAdmin" }) |
+                @Html.ActionLink("Edit", "EditMusicRecording", new { id = item.MusicId, Controller = "MusicAdmin" }) |
 
-                @Html.ActionLink(item.Id, "Details", new { id = item.Id, Controller = "" })
+                @*@Html.ActionLink(item.Id, "Details", new { id = item.Id, Controller = "" })*@
 
+                @Html.ActionLink("Details", "GetMusicRecording", new {id = item.MusicId })
                 @*@Html.ActionLink("Details", "GetMusicRecording", new { Id = item.Id })*@
 
                 @*Html.ActionLink("Details", "Details", new { id=item.Id })*@
 
-                @Html.ActionLink("Delete", "DeleteMusicRecording", new { id = item.Id, Controller = "MusicAdmin" })
+                @Html.ActionLink("Delete", "DeleteMusicRecording", new { id = item.MusicId, Controller = "MusicAdmin" })
             </td>
         </tr>
     }

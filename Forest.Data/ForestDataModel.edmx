@@ -14,9 +14,9 @@
         </EntityType>
         <EntityType Name="Music_Recording">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="MusicId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Artist" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="GenreId" Type="int" Nullable="false" />
@@ -47,9 +47,9 @@
         </EntityType>
         <EntityType Name="Music_Recording">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="MusicId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Artist" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Image_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -76,6 +76,7 @@
           <EntitySetMapping Name="Music_Recording">
             <EntityTypeMapping TypeName="ForestModel.Music_Recording">
               <MappingFragment StoreEntitySet="Music_Recording">
+                <ScalarProperty Name="MusicId" ColumnName="MusicId" />
                 <ScalarProperty Name="GenreId" ColumnName="GenreId" />
                 <ScalarProperty Name="Released" ColumnName="Released" />
                 <ScalarProperty Name="Stock_Count" ColumnName="Stock_Count" />
@@ -84,7 +85,6 @@
                 <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Artist" ColumnName="Artist" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

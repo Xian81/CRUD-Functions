@@ -10,6 +10,8 @@
 
     <hr />
     <dl class="dl-horizontal">
+
+       
         <dt>
             @Html.DisplayNameFor(model => model.Artist)
         </dt>
@@ -84,6 +86,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.Id, Controller = "Music" })
-</p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MusicId }) |
+    @Html.ActionLink("Back to List", "GetMusicRecordings", new { id = Model.GenreId, Controller = "Music" })

@@ -31,9 +31,9 @@ namespace Forest.Services.Service
 
         //}
 
-        IList<MusicBEAN> IMusicService.GetMusicRecordingsBEAN(int genre)
+        IList<MusicBEAN> IMusicService.GetMusicRecordings(int genre)
         {
-            return _musicDAO.GetMusicRecordingsBEAN(genre);
+            return _musicDAO.GetMusicRecordings(genre);
         }
 
 

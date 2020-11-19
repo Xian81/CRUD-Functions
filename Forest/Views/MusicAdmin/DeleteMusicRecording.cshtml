@@ -77,8 +77,8 @@
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.Released)*@
-            @Model.Released.ToString("dd MMM yyyy")
+            @Html.DisplayFor(model => model.Released)
+            @*@Model.Released.ToString("dd MMM yyyy")*@
         </dd>
 
     </dl>
@@ -88,7 +88,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.Id, Controller = "Music" })
+            @Html.ActionLink("Back to List", "GetMusicRecordings", new { genre = Model.MusicId, Controller = "Music" })
         </div>
     }
 </div>

@@ -14,7 +14,7 @@ namespace Forest.Services.IService
         IList<Forest.Data.Music_Category> GetMusicCategories();
         //IList<Forest.Data.Music_Recording> GetMusicRecordings(int genre);
 
-        IList<MusicBEAN> GetMusicRecordingsBEAN(int genre);
+        IList<MusicBEAN> GetMusicRecordings(int genre);
 
         MusicBEAN GetMusicRecordingBEAN(int Id);
 

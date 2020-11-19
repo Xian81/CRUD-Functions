@@ -37,7 +37,7 @@ namespace Forest.Controllers
 
         public ActionResult GetMusicRecordings (int genre )
         {
-            return View(_MusicService.GetMusicRecordingsBEAN(genre));
+            return View(_MusicService.GetMusicRecordings(genre));
         }
 
         //public ActionResult GetMusicRecording ( int Id)
@@ -48,7 +48,7 @@ namespace Forest.Controllers
 
         //}
 
-        public ActionResult GetMusicRecording (int Id)
+        public ActionResult GetMusicRecording (int Id  )
         {
             return View(_MusicService.GetMusicRecordingBEAN(Id));
         }
