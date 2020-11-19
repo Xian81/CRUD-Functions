@@ -1,0 +1,90 @@
+﻿@model Forest.Data.BEANS.MusicBEAN
+
+@{
+    ViewBag.Title = "GetMusicRecording";
+}
+
+<h2>Details Of Music Recording</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Genre)*@
+            <label for="Genre">Genre Name</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Image_Name)*@
+            <label for="Image_Name">Image</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Name)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Num_Tracks)*@
+            <label for="Num_Tracks">Number of Tracks</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num_Tracks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Stock_Count)*@
+            <label for="Stock_Count">Stock</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock_Count)
+
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Released)*@
+            <label for="Released">Release Year</label>
+        </dt>
+
+        <dd>
+            @Model.Released.ToString("dd MMM yyyy")
+            @*@Html.DisplayFor(model => model.Released)*@
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MusicId }) |
+    @Html.ActionLink("Back to List", "GetMusicRecordings", new { id = Model.GenreId, Controller = "Music" })

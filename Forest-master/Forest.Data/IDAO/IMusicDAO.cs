@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forest.Data.BEANS;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,11 @@ namespace Forest.Data.IDAO
 
         IList<Music_Catergory> GetMusicCategories();
 
-        IList <Music_Recording> GetMusicRecordings(string genre);
+        //IList <Music_Recording> GetMusicRecordings(string genre);
 
-        Music_Recording GetMusicRecording(int id);
+        MusicBEAN GetMusicRecording(int genreId);
+
+        //Music_Recording GetMusicRecording(int id);
 
 
         void EditMusicRecording(Music_Recording recording);
@@ -32,6 +35,8 @@ namespace Forest.Data.IDAO
 
 
         void DeleteMusicRecording(Music_Recording recording);
+
+        IList<MusicBEAN> GetMusicRecordings(int genre);
         
         //Do not use <> brackets these are only for a list.
 

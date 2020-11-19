@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Forest.Data.BEANS.MusicBEAN>
+
+@{
+    ViewBag.Title = "GetMusicRecordings";
+}
+
+<h2>Music Recording</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+
+        <th>
+
+            @*@Html.DisplayNameFor(model => model.Artist)*@
+            <label for="Artist">Genre</label>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Genre)*@
+            <label for="Genre">Genre Name </label>
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Image_Name)*@
+            <label for="Image_Name">Image</label>
+
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Num_Tracks)*@
+            <label for="Num_Tracks">Number of Tracks</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Stock_Count)*@
+            <label for="Stock_Count">Stock</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Released)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num_Tracks)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock_Count)
+            </td>
+            <td>
+                @item.Released.ToString("dd MMM yyyy")
+                @*@Html.DisplayFor(modelItem => item.Released.ToShortDateString()))*@
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "EditMusicRecording", new { id = item.MusicId, Controller = "MusicAdmin" }) |
+
+                @*@Html.ActionLink(item.Id, "Details", new { id = item.Id, Controller = "" })*@
+
+                @Html.ActionLink("Details", "GetMusicRecording", new {id = item.MusicId })
+                @*@Html.ActionLink("Details", "GetMusicRecording", new { Id = item.Id })*@
+
+                @*Html.ActionLink("Details", "Details", new { id=item.Id })*@
+
+                @Html.ActionLink("Delete", "DeleteMusicRecording", new { id = item.MusicId, Controller = "MusicAdmin" })
+            </td>
+        </tr>
+    }
+
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Categories")
+</div>

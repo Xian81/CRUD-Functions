@@ -18,10 +18,9 @@ namespace Forest.Controllers
 
         public ActionResult Index()
         {
-            IList<Music_Catergory> _catergories =
+            IList<Music_Catergory> _Catergories =
            _myForestEntities.Music_Catergory.ToList();
-            return View(_catergories);
-        }
+            return View(_Catergories);
 
        
 
