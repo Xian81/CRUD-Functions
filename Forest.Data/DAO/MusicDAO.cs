@@ -32,6 +32,7 @@ namespace Forest.Data.DAO
         {
             IQueryable<MusicBEAN> _musicBEAN = from rec in _context.Music_Recording
                                                from cat in _context.Music_Category
+                                               where rec.GenreId == cat.GenreId
                                                where rec.MusicId == id
                                                select new MusicBEAN
                                                {
@@ -46,7 +47,8 @@ namespace Forest.Data.DAO
                                                    Stock_Count = rec.Stock_Count,
                                                    Released = rec.Released,
                                                };
-            return _musicBEAN.ToList().First();
+            var x = _musicBEAN.ToList().First();
+            return x;
            
         }
 
@@ -63,7 +65,7 @@ namespace Forest.Data.DAO
                                                     Artist = recs.Artist,
                                                     Title = recs.Title,
                                                     Genre = cats.Genre,
-                                                    GenreId = cats.GenreId,
+                                                    GenreId = recs.GenreId,
                                                     Image_Name = recs.Image_Name,
                                                     Num_Tracks = recs.Num_Tracks,
                                                     Price = recs.Price,
@@ -118,6 +120,7 @@ namespace Forest.Data.DAO
         {
 
             Music_Recording record = GetMusicRecording(recording.MusicId);
+            record.MusicId = recording.MusicId;
             record.Artist = recording.Artist;
             record.GenreId = recording.GenreId;
             record.Image_Name = recording.Image_Name;
