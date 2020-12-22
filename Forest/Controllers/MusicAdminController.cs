@@ -35,10 +35,9 @@ namespace Forest.Controllers
         }
 
         // GET: MusicAdmin/Create
-        public ActionResult AddMusicRecording (int Genre)
+        public ActionResult AddMusicRecording (string Genre)
         {
-          
-            return View();
+                  return View();
         }
         //Why is this to convert to a string genre ? 
         //These two work together as one is Get and the other is Post.
@@ -76,7 +75,7 @@ namespace Forest.Controllers
                 // TODO: Add update logic here
                 _MusicService.EditMusicRecording(recording);
 
-                return RedirectToAction("GetMusicRecordings", new { genre = recording.MusicId, Controller = "Music" });
+                return RedirectToAction("GetMusicRecordings", new { genre = recording.GenreId, Controller = "Music" });
             }
             catch
             {
