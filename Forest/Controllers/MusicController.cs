@@ -7,14 +7,15 @@ using System.Web.Mvc;
 
 namespace Forest.Controllers
 {
-    public class MusicController : Controller
+    public class MusicController : ApplicationController
     {
         private Forest.Services.IService.IMusicService _MusicService;
 
 
-        public MusicController() { 
+        public MusicController() {
 
-            _MusicService = new Forest.Services.Service.MusicService(); }
+            _MusicService = new Forest.Services.Service.MusicService();
+        }
 
 
 
@@ -23,7 +24,7 @@ namespace Forest.Controllers
         // GET: Music
         public ActionResult Categories()
         {
-            return View(_MusicService.GetMusicCategories());
+            return View(_musicService.GetMusicCategories());
         }
 
 

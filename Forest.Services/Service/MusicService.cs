@@ -7,8 +7,7 @@ using Forest.Services.IService;
 
 namespace Forest.Services.Service
 {
-    public class MusicService:
-        Forest.Services.IService.IMusicService
+    public class MusicService: Forest.Services.IService.IMusicService
 
     {
         private IMusicDAO _musicDAO;

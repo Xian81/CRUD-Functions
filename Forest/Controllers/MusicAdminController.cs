@@ -35,12 +35,27 @@ namespace Forest.Controllers
         }
 
         // GET: MusicAdmin/Create
+        [HttpGet]
         public ActionResult AddMusicRecording (string Genre)
         {
-                  return View();
+            List<SelectListItem> genreList = new List<SelectListItem>();
+            foreach(var item in _MusicService.GetMusicCategories())
+            {
+                genreList.Add(
+                new SelectListItem()
+                {
+                    Text = item.Genre,
+                    Value = item.GenreId.ToString(),
+                    Selected = (item.Genre == (Genre) ? true : false)
+
+                }) ;
+            }
+            ViewBag.genreList = genreList;
+            return View();
+
+                
         }
-        //Why is this to convert to a string genre ? 
-        //These two work together as one is Get and the other is Post.
+        
         // POST: MusicAdmin/Create
         [HttpPost]
         public ActionResult AddMusicRecording ( Music_Recording recording )
